@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+
+main {
+    margin: auto;
+    max-width: 40em;
+    padding: 48px 12px;
+}
+
+body,
+input[type=text],
+input[type=submit],
+input[type=password],
+input[type=date],
+textarea {
+    font-family: 'Karla', Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+input[type=text],
+input[type=password],
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}
+
+p,
+label {
+    line-height: 1.6em;
+}
+
+b {
+    font-weight: normal;
+    color: crimson;
+}
+
+@media screen and (max-width: 450px) {
+    main {
+        padding-top: 24px;
+    }
+}
