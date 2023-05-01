@@ -1,17 +1,14 @@
 const from = document.getElementById('from');
 const fromdiv = document.getElementById('from-div');
-const quotelabel = document.getElementById('quote-label');
 const conversation = document.getElementById('conversation');
 
 function handleRadioClick() {
   if (conversation.checked) {
-    from.required = 'false';
+    from.removeAttribute('required');
     fromdiv.style.display = 'none';
-    quotelabel.innerHTML = 'Gesprek<b>*</b>:'
   } else {
-    from.required = 'true';
+    from.setAttribute('required', '');
     fromdiv.style.display = 'block';
-    quotelabel.innerHTML = 'Quote<b>*</b>:'
   }
 }
 
