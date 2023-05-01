@@ -8,11 +8,13 @@ function index()
 end
 
 function create()
+  san_type::String = sanitize(postpayload(:type))
   san_quote::String = sanitize(postpayload(:quote))
   san_from::String = sanitize(postpayload(:from))
+  san_context::String = sanitize(postpayload(:context))
   san_date::String = sanitize(postpayload(:date))
 
-  Quote(quote_=san_quote, name=san_from, date=san_date) |> save && redirect("/")
+  Quote(type=san_type, quote_=san_quote, name=san_from, context=san_context, date=san_date) |> save && redirect("/")
 end
 
 function sanitize(text::String)

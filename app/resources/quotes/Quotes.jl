@@ -10,6 +10,7 @@ export Quote
 
 @kwdef mutable struct Quote <: AbstractModel
   id::DbId = DbId()
+  type::String = ""
   quote_::String = ""
   name::String = ""
   context::String = ""

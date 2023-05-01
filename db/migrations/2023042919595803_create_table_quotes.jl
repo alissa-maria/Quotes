@@ -6,6 +6,7 @@ function up()
   create_table(:quotes) do
     [
       pk()
+      column(:type, :string, not_null = true)
       column(:quote_, :string, not_null = true)
       column(:name, :string)
       column(:context, :string)
