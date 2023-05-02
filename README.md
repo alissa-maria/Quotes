@@ -1,21 +1,8 @@
-Small project for my friend group to submit out of context quotes. Will be polishing it along the way.
+# Quotes
+Small, possibly over-engineered project for my friend group to submit out of context quotes. Will be polishing it along the way.
 
-Install dependencies:
+### Build
+`setup.sh` prompts the webpage's password, instantiates the project and sets up the database tables. I haven't actually tested this script yet—if it doesn't work you should run the Julia code line by line in the REPL.
 
-```
-julia --project=. -e "import Pkg; Pkg.instantiate()"
-```
-
-Initiate repl:
-
-```
-bin/repl
-```
-
-Create table in db/dev.sqlite3 (inside repl, only once):
-
-```julia
-using SearchLight
-SearchLight.Migration.init()
-SearchLight.Migration.lastup()
-```
+### Run
+After that you can start the server with `bin/server`. Pay attention to what Genie environment you're in (`dev` or `prod`).

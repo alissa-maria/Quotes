@@ -25,16 +25,12 @@ function login()
     user = findone(User, username = username, password = password)
     authenticate(user.id, GenieSession.session(params()))
 
-    redirect(:success)
+    redirect(:home)
   catch ex
     flash("Wachtwoord onjuist! ")
 
     redirect(:show_login)
   end
-end
-
-function success()
-  html(:authentication, :success, context = @__MODULE__)
 end
 
 function logout()
