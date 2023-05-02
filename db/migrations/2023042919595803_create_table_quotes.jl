@@ -10,7 +10,8 @@ function up()
       column(:quote_, :string, not_null = true)
       column(:name, :string)
       column(:context, :string)
-      column(:date, :string, not_null = true)
+      column(:date, :date, not_null = true)
+      column(:submitted_date, :date, not_null = true)
     ]
   end
 end

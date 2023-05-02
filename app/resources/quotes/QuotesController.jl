@@ -1,6 +1,6 @@
 module QuotesController
 
-using Genie.Renderer.Html, Genie.Requests, SearchLight, GenieAuthentication, Quotes.Quotes
+using Genie.Renderer.Html, Genie.Requests, SearchLight, GenieAuthentication, Quotes.Quotes, Dates
 import Markdown
 
 function index()
@@ -16,8 +16,9 @@ function create()
   san_from::String = sanitize(postpayload(:from))
   san_context::String = sanitize(postpayload(:context))
   san_date::String = sanitize(postpayload(:date))
+  san_submitted_date::String = sanitize(Dates.format(Dates.now(), "yyyy-mm-dd"))
 
-  Quote(type=san_type, quote_=san_quote, name=san_from, context=san_context, date=san_date) |> save && redirect("/")
+  Quote(type=san_type, quote_=san_quote, name=san_from, context=san_context, date=san_date, submitted_date=san_submitted_date) |> save && redirect("/")
 end
 
 function sanitize(text::String)
