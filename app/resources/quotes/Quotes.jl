@@ -14,14 +14,14 @@ export Quote
   quote_::String = ""
   name::String = ""
   context::String = ""
-  date::Date = ""
-  submitted_date::Date = ""
+  date::Date = Dates.today()
+  submitted_date::Date = Dates.today()
 end
 
 function SearchLight.Validation.validator(::Type{Quote})
   ModelValidator([
     ValidationRule(:quote_, QuotesValidator.not_empty)
-    # ValidationRule(:date, QuotesValidator.not_empty)
+    # ValidationRule(:date, QuotesValidator.valid_date)
   ])
 end
 

@@ -1,6 +1,6 @@
 module QuotesValidator
 
-using SearchLight, SearchLight.Validation
+using SearchLight, SearchLight.Validation, Dates
 
 function not_empty(field::Symbol, m::T)::ValidationResult where {T<:AbstractModel}
   isempty(getfield(m, field)) && return ValidationResult(invalid, :not_empty, "should not be empty")
@@ -10,6 +10,13 @@ end
 
 function is_int(field::Symbol, m::T)::ValidationResult where {T<:AbstractModel}
   isa(getfield(m, field), Int) || return ValidationResult(invalid, :is_int, "should be an int")
+
+  ValidationResult(valid)
+end
+
+function valid_date(field::Symbol, m::T)::ValidationResult where {T<:AbstractModel}
+  date = Date(getfield(m, field), "yyyy-mm-dd")
+  date <= Dates.today() || return ValidationResult(invalid, :valid_date, "day has not yet come")
 
   ValidationResult(valid)
 end
