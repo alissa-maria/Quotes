@@ -45,30 +45,6 @@ function logout()
   redirect(:show_login)
 end
 
-function show_register()
-  html(:authentication, :register, context = @__MODULE__)
-end
-
-function register()
-  try
-    user = User(username  = params(:username), password  = params(:password) |> Users.hash_password) |> save!
-
-    authenticate(user.id, GenieSession.session(params()))
-
-    "Registration successful"
-  catch ex
-    @error ex
-
-    if hasfield(typeof(ex), :msg)
-      flash(ex.msg)
-    else
-      flash(string(ex))
-    end
-
-    redirect(:show_register)
-  end
-end
-
 function add_user(username::String, password::String)
   User(username  = username, password  = password |> Users.hash_password) |> save!
 end
