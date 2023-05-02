@@ -46,6 +46,10 @@ b {
     color: crimson;
 }
 
+.alert {
+    color: crimson;
+}
+
 @media screen and (max-width: 450px) {
     main {
         padding-top: 24px;

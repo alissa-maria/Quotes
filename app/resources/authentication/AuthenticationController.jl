@@ -27,7 +27,7 @@ function login()
 
     redirect(:success)
   catch ex
-    flash("Authentication failed! ")
+    flash("Wachtwoord onjuist! ")
 
     redirect(:show_login)
   end
@@ -40,7 +40,7 @@ end
 function logout()
   deauthenticate(GenieSession.session(params()))
 
-  flash("Good bye! ")
+  flash("Doei! ")
 
   redirect(:show_login)
 end

@@ -1,13 +1,16 @@
 module QuotesController
 
-using Genie.Renderer.Html, Genie.Requests, SearchLight, Quotes.Quotes
+using Genie.Renderer.Html, Genie.Requests, SearchLight, GenieAuthentication, Quotes.Quotes
 import Markdown
 
 function index()
+  authenticated!()
   html(:quotes, :index)
 end
 
 function create()
+  authenticated!()
+
   san_type::String = sanitize(postpayload(:type))
   san_quote::String = sanitize(postpayload(:quote))
   san_from::String = sanitize(postpayload(:from))

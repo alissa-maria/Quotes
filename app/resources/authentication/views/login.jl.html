@@ -1,23 +1,21 @@
-<h1 class="display-3">Login</h1>
+<h1>Login</h1>
 
-<div class="bs-callout bs-callout-primary">
-  <p>
-    Voer het wachtwoord in om verder te gaan.
-  </p>
-</div>
+<p>
+  Voer het wachtwoord in om verder te gaan.
+</p>
 
 <span>$(output_flash())</span>
 
 <form method="POST" action="$(linkto(:login))" class="" enctype="multipart/form-data">
   <!-- <div class="form-group">
     <label _for="auth_username">Username</label>
-    <input type="text" id="auth_username" name="username" class="form-control" placeholder="User" />
+    <input type="text" id="auth_username" name="username" placeholder="User" />
   </div> -->
 
   <div class="form-group">
     <label _for="auth_password">Wachtwoord:</label>
-    <input type="password" id="auth_password" name="password" class="form-control" placeholder="Password" />
+    <input type="password" id="auth_password" name="password" placeholder="Wachtwoord" />
   </div>
 
-  <input type="submit" value="Login" class="btn btn-primary" />
+  <input type="submit" value="Login" />
 </form>

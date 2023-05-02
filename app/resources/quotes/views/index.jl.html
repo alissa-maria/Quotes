@@ -1,40 +1,38 @@
-<main>
-    <h1>Quotes</h1>
+<h1>Quotes</h1>
 
-    <p>Wel lief zijn. 😉</p>
+<p>Wel lief zijn. 😉</p>
 
-    <form method="post" enctype="multipart/form-data" action="$(Genie.Router.linkto(:create_quote))">
+<form method="post" enctype="multipart/form-data" action="$(Genie.Router.linkto(:create_quote))">
 
-        <input type="radio" name="type" id="quote" value="quote" checked>
-        <label for="quote">Losse quote</label>
-        <br>
-        <input type="radio" name="type" id="conversation" value="conversation">
-        <label for="quote">Gesprek</label>
+    <input type="radio" name="type" id="quote" value="quote" checked>
+    <label for="quote">Losse quote</label>
+    <br>
+    <input type="radio" name="type" id="conversation" value="conversation">
+    <label for="quote">Gesprek</label>
 
-        <br>
-        <textarea name="quote" id="quote" cols="40" rows="5" required="required" maxlength="512"
-            placeholder="Typ de quote(s) hier..."></textarea>
+    <br>
+    <textarea name="quote" id="quote" cols="40" rows="5" required="required" maxlength="512"
+        placeholder="Typ de quote(s) hier..."></textarea>
 
-        <br>
+    <br>
 
-        <div id="from-div">
-            <label for="from">Van<b>*</b>:</label>
-            <input type="text" name="from" id="from" maxlength="32">
-        </div>
+    <div id="from-div">
+        <label for="from">Van<b>*</b>:</label>
+        <input type="text" name="from" id="from" maxlength="32">
+    </div>
 
-        <label for="to">Context:</label>
-        <input type="text" name="context" maxlength="256">
+    <label for="to">Context:</label>
+    <input type="text" name="context" maxlength="256">
 
-        <br>
+    <br>
 
-        <label for="date">Datum<b>*</b>:</label>
-        <input type="date" id="date" name="date" required>
+    <label for="date">Datum<b>*</b>:</label>
+    <input type="date" id="date" name="date" required>
 
-        <br><br>
+    <br><br>
 
-        <input type="submit" name="submit" value="Verzend">
-    </form>
-</main>
+    <input type="submit" name="submit" value="Verzend">
+</form>
 
 <script>
     date.value = new Date().toLocaleDateString('nl');
