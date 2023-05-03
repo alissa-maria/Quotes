@@ -15,7 +15,8 @@ function is_int(field::Symbol, m::T)::ValidationResult where {T<:AbstractModel}
 end
 
 function valid_date(field::Symbol, m::T)::ValidationResult where {T<:AbstractModel}
-  date = Date(getfield(m, field), "yyyy-mm-dd")
+  date_str = Dates.format(Dates.Date(getfield(m, field)), "yyyy-mm-dd")
+  date = Date(date_str, "yyyy-mm-dd")
   date <= Dates.today() || return ValidationResult(invalid, :valid_date, "day has not yet come")
 
   ValidationResult(valid)

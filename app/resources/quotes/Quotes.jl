@@ -21,7 +21,7 @@ end
 function SearchLight.Validation.validator(::Type{Quote})
   ModelValidator([
     ValidationRule(:quote_, QuotesValidator.not_empty)
-    # ValidationRule(:date, QuotesValidator.valid_date)
+    ValidationRule(:date, QuotesValidator.valid_date)
   ])
 end
 
