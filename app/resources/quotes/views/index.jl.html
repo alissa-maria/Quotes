@@ -1,5 +1,7 @@
 <h1>Quotes</h1>
 
+<span>$(output_flash())</span>
+
 <p>Wel lief zijn. 😉</p>
 
 <form method="post" enctype="multipart/form-data" action="$(Genie.Router.linkto(:create_quote))">
@@ -11,7 +13,7 @@
     <label for="quote">Gesprek</label>
 
     <br>
-    <textarea name="quote" id="quote" cols="40" rows="5" required="required" maxlength="512"
+    <textarea name="quote" id="quote" cols="40" rows="5" maxlength="512" required
         placeholder="Typ de quote(s) hier..."></textarea>
 
     <br>

@@ -1,11 +1,12 @@
 module QuotesController
 
-using Genie.Renderer.Html, Genie.Requests, SearchLight, GenieAuthentication, Quotes.Quotes, Dates
+using Genie.Renderer.Html, Genie.Requests, Genie.Exceptions, GenieAuthentication, GenieAuthentication.GenieSession.Flash, SearchLight, Dates
+using ..Main.UserApp.GenieAuthenticationViewHelper, ..Main.UserApp.Quotes
 import Markdown
 
 function index()
   authenticated!()
-  html(:quotes, :index)
+  html(:quotes, :index, context = @__MODULE__)
 end
 
 function create()
@@ -17,7 +18,15 @@ function create()
   san_context::String = sanitize(postpayload(:context))
   san_date::String = sanitize(postpayload(:date))
 
-  Quote(type=san_type, quote_=san_quote, name=san_from, context=san_context, date=san_date, submitted_date=Dates.today()) |> save && redirect("/")
+  submitted = Quote(type=san_type, quote_=san_quote, name=san_from, context=san_context, date=san_date) |> save
+
+  if submitted
+    flash("Quote verzonden! ヽ(⌒▽⌒)ﾉ ")
+    redirect(:home)
+  else
+    flash("Er is iets misgegaan, de quote is niet verzonden. ")
+    throw(ExceptionalResponse(redirect(:home)))
+  end
 end
 
 function sanitize(text::String)
