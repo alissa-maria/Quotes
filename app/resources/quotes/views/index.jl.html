@@ -37,8 +37,9 @@
 </form>
 
 <script>
-    date.value = new Date().toLocaleDateString('nl');
-    date.max = date.value;
+    const today = new Date().toISOString().split("T")[0];
+    date.setAttribute("value", today)
+    date.setAttribute("max", today);
 </script>
 
 <script src="/js/toggleform.js"></script>
