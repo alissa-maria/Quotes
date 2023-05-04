@@ -19,7 +19,7 @@ end
 
 function login()
   try
-    username = "general" # params(:username)
+    username = "general"
     password = Users.hash_password(params(:password))
 
     user = findone(User, username = username, password = password)
@@ -36,7 +36,7 @@ end
 function logout()
   deauthenticate(GenieSession.session(params()))
 
-  flash("Doei! ")
+  flash("Tot de volgende keer! ")
 
   redirect(:show_login)
 end

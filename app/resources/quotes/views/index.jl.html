@@ -20,7 +20,7 @@
 
     <div id="from-div">
         <label for="from">Van<b>*</b>:</label>
-        <input type="text" name="from" id="from" maxlength="32">
+        <input type="text" name="from" id="from" maxlength="64">
     </div>
 
     <label for="to">Context:</label>
@@ -38,7 +38,6 @@
 
 <script>
     const today = new Date().toISOString().split("T")[0];
-    date.setAttribute("value", today)
     date.setAttribute("max", today);
 </script>
 

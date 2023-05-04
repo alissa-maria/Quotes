@@ -7,9 +7,9 @@ function up()
     [
       pk()
       column(:type, :string, not_null = true)
-      column(:quote_, :string, not_null = true)
-      column(:name, :string)
-      column(:context, :string)
+      column(:quote_, limit = 512, :string, not_null = true)
+      column(:name, limit = 64, :string)
+      column(:context, limit = 256, :string)
       column(:date, :date, not_null = true)
       column(:submitted_date, :date, not_null = true)
     ]
