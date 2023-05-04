@@ -1,4 +1,4 @@
-<h1>Quotes</h1>
+<h1>Verzend hier je citaat.</h1>
 
 <span>$(output_flash())</span>
 
@@ -7,14 +7,14 @@
 <form method="post" enctype="multipart/form-data" action="$(Genie.Router.linkto(:create_quote))">
 
     <input type="radio" name="type" id="quote" value="quote" checked>
-    <label for="quote">Losse quote</label>
+    <label for="quote">Los citaat</label>
     <br>
     <input type="radio" name="type" id="conversation" value="conversation">
     <label for="quote">Gesprek</label>
 
     <br>
     <textarea name="quote" id="quote" cols="40" rows="5" maxlength="512" required
-        placeholder="Typ de quote(s) hier..."></textarea>
+        placeholder="Typ je citaat/citaten hier..."></textarea>
 
     <br>
 
@@ -28,7 +28,7 @@
 
     <br>
 
-    <label for="date">Datum van quote<b>*</b>:</label>
+    <label for="date">Datum van citaat<b>*</b>:</label>
     <input type="date" id="date" name="date" required>
 
     <br><br>
