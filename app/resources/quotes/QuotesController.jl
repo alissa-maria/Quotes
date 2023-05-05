@@ -21,10 +21,10 @@ function create()
   submitted = Quote(type=san_type, quote_=san_quote, name=san_from, context=san_context, date=san_date) |> save
 
   if submitted
-    flash("Citaat verzonden! ヽ(⌒▽⌒)ﾉ ")
+    flash("Citaat geplaatst! ヽ(⌒▽⌒)ﾉ ")
     redirect(:home)
   else
-    flash("Er is iets misgegaan, de quote is niet verzonden. ")
+    flash("Er is iets misgegaan, het citaat is niet geplaatst. ")
     throw(ExceptionalResponse(redirect(:home)))
   end
 end
