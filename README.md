@@ -8,7 +8,7 @@ Building the app happens in the Julia REPL:
 
 ```bash
 export GENIE_ENV=prod # default is dev
-/bin/repl
+bin/repl
 ```
 
 ```julia
