@@ -4,9 +4,9 @@ using Genie.Renderer.Html, Genie.Requests, Genie.Exceptions, GenieAuthentication
 using ..Main.UserApp.GenieAuthenticationViewHelper, ..Main.UserApp.Quotes
 import Markdown
 
-function index()
+function form()
   authenticated!()
-  html(:quotes, :index, context = @__MODULE__)
+  html(:quotes, :form, context = @__MODULE__)
 end
 
 function create()
@@ -27,6 +27,11 @@ function create()
     flash("Er is iets misgegaan, het citaat is niet geplaatst. ")
     throw(ExceptionalResponse(redirect(:home)))
   end
+end
+
+function index()
+  authenticated!()
+  html(:quotes, :index, quotes = all(Quote, order=SQLOrder(:date, "DESC")), context = @__MODULE__)
 end
 
 function sanitize(text::String)

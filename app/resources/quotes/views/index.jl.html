@@ -1,44 +1,22 @@
-<h1>Plaats je citaat!</h1>
+<h1>Alle quotes</h1>
 
-<span>$(output_flash())</span>
+<div id="quotes">
+    <% if ! isempty(quotes) %>
+        <% for_each(quotes) do quot %>
+            <div class="quote">
+                <p>$(quot.quote_)</p>
+                <p><em>— $(quot.name)
+                    <% if ! isempty(quot.context) %>
+                        , $(quot.context)
+                    <% end %>
+                    ($(quot.date))</em></p>
+            </div>
+        <% end %>
+    <% else %>
+        <p>Er zijn geen citaten! .·°՞(≧□≦)՞°·.</p>
+    <% end %>
+</div>
 
-<p>Wel lief zijn. 😉</p>
+<br>
 
-<form method="post" enctype="multipart/form-data" action="$(Genie.Router.linkto(:create_quote))">
-
-    <input type="radio" name="type" id="quote" value="quote" checked>
-    <label for="quote">Los citaat</label>
-    <br>
-    <input type="radio" name="type" id="conversation" value="conversation">
-    <label for="quote">Gesprek</label>
-
-    <br>
-    <textarea name="quote" id="quote" cols="40" rows="5" maxlength="512" required
-        placeholder="Typ je citaat/citaten hier..."></textarea>
-
-    <br>
-
-    <div id="from-div">
-        <label for="from">Van<b>*</b>:</label>
-        <input type="text" name="from" id="from" maxlength="64">
-    </div>
-
-    <label for="to">Context:</label>
-    <input type="text" name="context" maxlength="256">
-
-    <br>
-
-    <label for="date">Datum van citaat<b>*</b>:</label>
-    <input type="date" id="date" name="date" required>
-
-    <br><br>
-
-    <input type="submit" name="submit" value="Verzend">
-</form>
-
-<script>
-    const today = new Date().toISOString().split("T")[0];
-    date.setAttribute("max", today);
-</script>
-
-<script src="/js/toggleform.js"></script>
+<a href="/">Terug naar de homepagina</a>

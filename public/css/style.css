@@ -51,6 +51,17 @@ b {
     color: crimson;
 }
 
+.quote {
+    background-color: #ebe9e8;
+    padding: 0.2em 1em 0.3em;
+    margin: 0.7em;
+    box-shadow: 3px 3px #a7a5a4;
+}
+
+.quote p {
+    margin: 8px 0;
+}
+
 @media screen and (max-width: 450px) {
     main {
         padding-top: 24px;

@@ -19,7 +19,7 @@ end
 
 function login()
   try
-    username = "general"
+    username = params(:username)
     password = Users.hash_password(params(:password))
 
     user = findone(User, username = username, password = password)

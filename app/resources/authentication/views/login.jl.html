@@ -4,7 +4,16 @@
 
 <p>Voer het wachtwoord in om verder te gaan.</p>
 
-<form method="POST" action="$(linkto(:login))" class="" enctype="multipart/form-data">
-  <input type="password" id="auth_password" name="password" placeholder="Wachtwoord" />
+<form method="POST" action="$(linkto(:login))" enctype="multipart/form-data">
+  <input type="password" id="auth_password" name="password" placeholder="Wachtwoord" required />
+  
+  <input type="hidden" name="username" value="general" >
+  <label>
+    <input type="checkbox" name="username" value="admin">
+    Admin?
+  </label>
+
+  <br><br>
+
   <input type="submit" value="Login" />
 </form>
