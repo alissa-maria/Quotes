@@ -1,0 +1,45 @@
+<h1>Bewerk Citaat</h1>
+
+<div id="quote">
+    <form action="/quotes/update/$(quote.id)" method="POST">
+        <label for="type">Type:</label>
+        <input type="radio" id="quote" name="type" value="quote" checked>
+        <label for="quote">Los citaat</label>
+        <br>
+        <input type="radio" id="conversation" name="type" value="conversation">
+        <label for="quote">Gesprek</label>
+
+        <br>
+        <textarea id="quote" name="quote" cols="40" rows="5" maxlength="512" required placeholder="Typ je citaat/citaten hier...">$(quote.quote_)</textarea>
+
+        <br>
+
+        <div id="from-div">
+            <label for="from">Van<b>*</b>:</label>
+            <input type="text" id="from" name="from" maxlength="64" value="$(quote.name)">
+        </div>
+
+        <label for="context">Context:</label>
+        <input type="text" id="context" name="context" maxlength="256" value="$(quote.context)">
+
+        <br>
+
+        <label for="date">Datum van citaat<b>*</b>:</label>
+        <input type="date" id="date" name="date" required value="$(quote.date)">
+
+        <br><br>
+
+        <input type="submit" name="submit" value="Bijwerken">
+    </form>
+</div>
+
+<br>
+
+<a href="/">Terug naar de homepagina</a>
+
+<script>
+    const today = new Date().toISOString().split("T")[0];
+    date.setAttribute("max", today);
+</script>
+
+<script src="/js/toggleform.js"></script>

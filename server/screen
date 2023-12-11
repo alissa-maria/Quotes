@@ -1,0 +1,54 @@
+#!/bin/bash
+
+declare -a apps=(
+  "rain"
+  "quotes"
+)
+
+app="$2"
+
+start_app() {
+  if [[ ! " ${apps[@]} " =~ " $app " ]]; then
+    echo ". . . ┐(´-｀)┌"
+    exit 1
+  fi
+  if screen -list | grep -q "${app:0:6}"; then
+    echo "Server $app is already running!"
+    exit 1
+  fi
+  screen -dmS "${app:0:6}" bash "${app}.sh"
+  cat <<EOF
+REMINDER: pull changes from Git.
+Server $app started successfully! (ෆ˙ᵕ˙ෆ)♡
+
+$(screen -ls)
+EOF
+}
+
+stop_app() {
+  if ! screen -list | grep -q "${app:0:6}"; then
+    echo "$app is not running."
+    exit 1
+  fi
+  screen -S "${app:0:6}" -X quit
+  echo "Stopped "$app". (´・ω・)ﾉ"
+}
+
+case "$1" in
+  start)
+    start_app
+    ;;
+  stop)
+    stop_app
+    ;;
+  restart)
+    stop_app
+    sleep 1
+    start_app
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart} app"
+    exit 1
+esac
+
+exit 0
